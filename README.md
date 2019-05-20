@@ -1,27 +1,51 @@
 # NGX-LOGGING
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+NGX-LOGGING is a simple lightweight logger for angular.
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Install ``ngx-logging`` using npm.
 
-## Code scaffolding
+```
+npm i ngx-logging
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Then add it to your app.
+```typescript
+@NgModule({
+  imports: [
+    NgxLoggingModule.forRoot({
+      debugParameter: 'desperate'
+    })
+    ...
+  ]
+})
+export class AppModule {}
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```typescript
+@Component({
+  ...
+})
+export class SomeFancyComponent implements OnInit {
+  constructor(private _logging: LoggingService, private _dataProvider: DataProvider) {}
+  
+  ngOnInit() {
+    this._dataProvider.getSomeData().subscribe(value => {
+      this._logging.debug('received: {}', value);
+      ...
+    }, error => {
+      this._logging.error(error);
+    })
+  }
+  
+  actionDoSomething() {
+    this._logging.debug('I was called');
+  }
+}
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The debug logs will only be enable when we have it enabled. It's called ``debug`` by default but can be changed in the module config.
+In the case of this example it's ``desperate``. So to enable debug logging we would have to visit the url: ``http://localhost:4200?debug=true``.

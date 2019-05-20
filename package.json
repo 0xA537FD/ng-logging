@@ -7,10 +7,20 @@
     "email": "web@peter-morawski.de",
     "url": "www.peter-morawski.de"
   },
+  "license": "MIT",
   "repository": {
     "url": "https://github.com/Peter-Morawski/ngx-logging",
     "type": "git"
   },
+  "keywords": [
+    "ngx",
+    "angular",
+    "logging",
+    "logger",
+    "angular 7",
+    "ng",
+    "log"
+  ],
   "bugs": "https://github.com/Peter-Morawski/ngx-logging/issues",
   "homepage": "https://github.com/Peter-Morawski/ngx-logging",
   "private": false,
