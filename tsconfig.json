@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-logging": [
+        "dist/ngx-logging"
+      ],
+      "ngx-logging/*": [
+        "dist/ngx-logging/*"
+      ]
+    }
   }
 }
