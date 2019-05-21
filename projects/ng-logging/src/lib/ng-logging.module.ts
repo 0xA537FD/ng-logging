@@ -7,12 +7,10 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [RouterModule],
 })
-export class NgxLoggingModule {
-  static forRoot(
-    config?: LoggingConfig
-  ): ModuleWithProviders<NgxLoggingModule> {
+export class NgLoggingModule {
+  static forRoot(config?: LoggingConfig): ModuleWithProviders<NgLoggingModule> {
     return {
-      ngModule: NgxLoggingModule,
+      ngModule: NgLoggingModule,
       providers: [
         LoggingService,
         { provide: LOGGING_CONFIG, useValue: config },

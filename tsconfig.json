@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-logging": [
-        "dist/ngx-logging"
+      "ng-logging": [
+        "dist/ng-logging"
       ],
-      "ngx-logging/*": [
-        "dist/ngx-logging/*"
+      "ng-logging/*": [
+        "dist/ng-logging/*"
       ]
     }
   }

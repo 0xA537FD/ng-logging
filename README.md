@@ -1,20 +1,20 @@
-# NGX-LOGGING
+# NG-LOGGING
 
-NGX-LOGGING is a simple lightweight logger for angular.
+NG-LOGGING is a simple lightweight logger for angular.
 
 ## Getting started
 
-Install ``ngx-logging`` using npm.
+Install ``ng-logging`` using npm.
 
 ```
-npm i ngx-logging
+npm i ng-logging
 ```
 
 Then add it to your app.
 ```typescript
 @NgModule({
   imports: [
-    NgxLoggingModule.forRoot({
+    NgLoggingModule.forRoot({
       debugParameter: 'desperate'
     })
     ...

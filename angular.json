@@ -22,13 +22,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -82,61 +77,49 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     },
-    "ngx-logging": {
-      "root": "projects/ngx-logging",
-      "sourceRoot": "projects/ngx-logging/src",
+    "ng-logging": {
+      "root": "projects/ng-logging",
+      "sourceRoot": "projects/ng-logging/src",
       "projectType": "library",
-      "prefix": "ngxl",
+      "prefix": "ngl",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-logging/tsconfig.lib.json",
-            "project": "projects/ngx-logging/ng-package.json"
+            "tsConfig": "projects/ng-logging/tsconfig.lib.json",
+            "project": "projects/ng-logging/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-logging/src/test.ts",
-            "tsConfig": "projects/ngx-logging/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-logging/karma.conf.js"
+            "main": "projects/ng-logging/src/test.ts",
+            "tsConfig": "projects/ng-logging/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-logging/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-logging/tsconfig.lib.json",
-              "projects/ngx-logging/tsconfig.spec.json"
+              "projects/ng-logging/tsconfig.lib.json",
+              "projects/ng-logging/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
