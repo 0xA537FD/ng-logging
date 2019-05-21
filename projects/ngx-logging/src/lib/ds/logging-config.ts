@@ -1,3 +1,5 @@
+export const DEFAULT_DEBUG_PARAM = 'debug';
+
 export interface LoggingConfig {
   /**
    * The name of the query parameter which must be set to ``true`` in the url
@@ -7,5 +9,5 @@ export interface LoggingConfig {
    *
    * Default: debug
    */
-  debugParameter: string;
+  debugParameter?: string;
 }
