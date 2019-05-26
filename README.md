@@ -11,12 +11,32 @@ npm i ng-logging
 ```
 
 Then add it to your app.
+
+By default it won't depend on the router so all log levels will be logged.
 ```typescript
 @NgModule({
   imports: [
+    NgLoggingModule.forRoot(),
+    ...
+  ]
+})
+export class AppModule {}
+```
+
+When you have routing setup for your project you can also switch the mode of the
+``NgLoggingModule`` to ``routable`` and the debug logs will only be logged when
+the ``debugParameter`` is set to ``true`` e.g. ``http://localhost:4200?debug=true``.
+By default the ``debugParameter`` is called ``debug`` but you can change it's name in the
+configuration of the ``NgLoggingModule``.
+
+```typescript
+@NgModule({
+  imports: [
+    RouterModule.forRoot([{path: '', component: HomeComponent}]),
     NgLoggingModule.forRoot({
-      debugParameter: 'desperate'
-    })
+      mode: 'routable',
+      debugParameter: 'verbose'
+    }),
     ...
   ]
 })
@@ -46,6 +66,3 @@ export class SomeFancyComponent implements OnInit {
   }
 }
 ```
-
-The debug logs will only be enable when we have it enabled. It's called ``debug`` by default but can be changed in the module config.
-In the case of this example it's ``desperate``. So to enable debug logging we would have to visit the url: ``http://localhost:4200?debug=true``.

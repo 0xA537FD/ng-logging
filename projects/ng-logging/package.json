@@ -1,7 +1,7 @@
 {
   "name": "ng-logging",
   "description": "Lightweight logging for angular",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": {
     "name": "Peter Morawski",
     "email": "web@peter-morawski.de",

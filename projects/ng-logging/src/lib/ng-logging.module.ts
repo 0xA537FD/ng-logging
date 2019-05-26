@@ -4,13 +4,21 @@ import { LoggingConfig } from './ds/logging-config';
 import { LOGGING_CONFIG } from './config-token';
 import { RouterModule } from '@angular/router';
 
-@NgModule({
-  imports: [RouterModule],
-})
+@NgModule({})
 export class NgLoggingModule {
   static forRoot(config?: LoggingConfig): ModuleWithProviders<NgLoggingModule> {
+    if (config && config.mode && config.mode === 'routable') {
+      return {
+        ngModule: RoutableNgLoggingModule,
+        providers: [
+          LoggingService,
+          { provide: LOGGING_CONFIG, useValue: config },
+        ],
+      };
+    }
+
     return {
-      ngModule: NgLoggingModule,
+      ngModule: DefaultNgLoggingModule,
       providers: [
         LoggingService,
         { provide: LOGGING_CONFIG, useValue: config },
@@ -18,3 +26,11 @@ export class NgLoggingModule {
     };
   }
 }
+
+@NgModule({
+  imports: [RouterModule],
+})
+class RoutableNgLoggingModule {}
+
+@NgModule({})
+class DefaultNgLoggingModule {}

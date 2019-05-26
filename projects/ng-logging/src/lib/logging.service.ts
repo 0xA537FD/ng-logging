@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, Optional } from '@angular/core';
 import { LOGGING_CONFIG } from './config-token';
 import { DEFAULT_DEBUG_PARAM, LoggingConfig } from './ds/logging-config';
 import * as format_ from 'string-format';
@@ -18,18 +18,22 @@ export class LoggingService {
 
   constructor(
     @Inject(LOGGING_CONFIG) private _config: LoggingConfig,
-    private _route: ActivatedRoute
+    @Optional() private _route: ActivatedRoute
   ) {
     let debugParamName = DEFAULT_DEBUG_PARAM;
     if (this._config && this._config.debugParameter) {
       debugParamName = this._config.debugParameter;
     }
 
-    this._routeSub = this._route.queryParams.subscribe(params => {
-      if (params && typeof params[debugParamName] !== 'undefined') {
-        this._debug = params[debugParamName] === 'true';
-      }
-    });
+    if (this._route) {
+      this._routeSub = this._route.queryParams.subscribe(params => {
+        if (params && typeof params[debugParamName] !== 'undefined') {
+          this._debug = params[debugParamName] === 'true';
+        }
+      });
+    } else {
+      this._debug = true;
+    }
   }
 
   info(
